@@ -131,7 +131,7 @@ public class ProdutoController {
         JPanel panel = new JPanel();
         panel.add(nomeJLabel);
         panel.add(nomeJTextField);
-        JOptionPane.showMessageDialog(janela, panel, "Remover produto", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(janela, panel, "Remover produto", JOptionPane.QUESTION_MESSAGE);
 
         for (int i=0; i < produtos.size(); i++) {
             if (produtos.get(i).getNome().equals(nomeJTextField.getText())) {
@@ -143,7 +143,7 @@ public class ProdutoController {
             JOptionPane.showMessageDialog(janela, "Produto não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
             produtos.remove(pos);
-            JOptionPane.showMessageDialog(janela, "Produto removido com sucesso!", "Info", JOptionPane.DEFAULT_OPTION);
+            JOptionPane.showMessageDialog(janela, "Produto removido com sucesso!", "Info", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
