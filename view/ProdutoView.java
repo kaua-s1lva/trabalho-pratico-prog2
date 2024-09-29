@@ -38,6 +38,7 @@ public class ProdutoView extends JFrame {
     private JButton editarJButton;
     private JButton listarOrdemJButton;
     private JButton listarNaoOrdemJButton;
+    private JButton pesquisarJButton;
 
     private JTextArea listaProdutosJTextArea;
 
@@ -74,6 +75,7 @@ public class ProdutoView extends JFrame {
         editarJButton = new JButton("Editar Produto");
         listarOrdemJButton = new JButton("Listar Produtos Ordenados");
         listarNaoOrdemJButton = new JButton("Listar Produtos Não Ordenados");
+        pesquisarJButton = new JButton("Pesquisar");
 
         listaProdutosJTextArea = new JTextArea(10, 60);
 
@@ -156,6 +158,10 @@ public class ProdutoView extends JFrame {
         gbc.gridx = 0;
         add(listarNaoOrdemJButton, gbc);
 
+        gbc.gridy = 9;
+        gbc.gridx = 1;
+        add(pesquisarJButton, gbc);
+
         // Area de texto
         gbc.gridx = 0;
         gbc.gridy = 10;
@@ -179,48 +185,48 @@ public class ProdutoView extends JFrame {
         return nomeJTextField;
     }
 
-    public JLabel getNomeJLabel () {
-        return nomeJLabel;
+    public void setNomeJTextField (String nome) {
+        this.nomeJTextField.setText(nome);
     }
 
     public JTextField getPrecoJTextField () {
         return precoJTextField;
     }
 
-    public JLabel getPrecoJLabel () {
-        return precoJLabel;
+    public void setPrecoJTextField (Double preco) {
+        this.precoJTextField.setText(preco.toString());
     }
 
     public JTextField getQuantJTextField () {
         return quantJTextField;
     }
 
-    public JLabel getQuantJLabel () {
-        return quantJLabel;
+    public void setQuantJTextField (int quantidade) {
+        this.quantJTextField.setText(Integer.toString(quantidade));
     }
 
     public JTextField getMarcaJTextField () {
         return marcaJTextField;
     }
 
-    public JLabel getMarcaJLabel () {
-        return marcaJLabel;
+    public void setMarcaJTextField (String marca) {
+        this.marcaJTextField.setText(marca);
     }
 
     public JTextField getModeloJTextField () {
         return modeloJTextField;
     }
 
-    public JLabel getModeloJLabel () {
-        return modeloJLabel;
+    public void setModeloJTextField (String modelo) {
+        this.modeloJTextField.setText(modelo);
     }
 
     public JTextField getDataValidadeJTextField () {
         return dataValidadeJTextField;
     }
 
-    public JLabel getDataValidadeJLabel () {
-        return dataValidadeJLabel;
+    public void setDataValidadeJTextField (String dataValidade) {
+        this.dataValidadeJTextField.setText(dataValidade);
     }
 
     public JButton getAdicionarJButton () {
@@ -241,6 +247,10 @@ public class ProdutoView extends JFrame {
 
     public JButton getListarNaoOrdemJButton () {
         return listarNaoOrdemJButton;
+    }
+
+    public JButton getPesquisarJButton () {
+        return pesquisarJButton;
     }
 
     public JTextArea getListaProdutosJTextArea () {

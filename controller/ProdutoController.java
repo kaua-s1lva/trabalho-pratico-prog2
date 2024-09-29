@@ -30,6 +30,7 @@ public class ProdutoController {
         JButton listarProdutosOrdem = janela.getListarOrdemJButton();
         JButton removerProduto = janela.getRemoverJButton();
         JButton editarProduto = janela.getEditarJButton();
+        JButton pesquisarProduto = janela.getPesquisarJButton();
         
         adicionarProduto.addActionListener(new ActionListener(){
      
@@ -68,6 +69,14 @@ public class ProdutoController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 editarProdutoEvent();
+            }
+        });
+
+        pesquisarProduto.addActionListener(new ActionListener() {
+            
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                pesquisarProdutoEvent();
             }
         });
        
@@ -220,6 +229,35 @@ public class ProdutoController {
             
         }
     }
-    
 
+    private void pesquisarProdutoEvent() {
+        int pos = -1;
+        String nome = janela.getNomeJTextField().getText();
+    
+        for (int i = 0; i < produtos.size(); i++) {
+            if (produtos.get(i).getNome().equals(nome)) {
+                pos = i;
+            }
+        }
+    
+        if (pos == -1) {
+            JOptionPane.showMessageDialog(janela, "Produto não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            janela.setNomeJTextField(produtos.get(pos).getNome());
+            janela.setPrecoJTextField(produtos.get(pos).getPreco());
+            janela.setQuantJTextField(produtos.get(pos).getQuantidade());
+
+            if (produtos.get(pos) instanceof ProdutoAlimento) {
+                ProdutoAlimento produtoAlimento = (ProdutoAlimento) produtos.get(pos);
+                janela.setDataValidadeJTextField(produtoAlimento.getData_validade());
+                janela.setMarcaJTextField("");
+                janela.setModeloJTextField("");
+            } else {
+                ProdutoEletronico produtoEletronico = (ProdutoEletronico) produtos.get(pos);
+                janela.setDataValidadeJTextField("");
+                janela.setMarcaJTextField(produtoEletronico.getMarca());
+                janela.setModeloJTextField(produtoEletronico.getModelo());
+            }
+        }
+    }
 }
